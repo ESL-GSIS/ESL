@@ -45,10 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -161,10 +168,125 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccommodationsController.cs" />
+    <Compile Include="Controllers\AdvisorsController.cs" />
+    <Compile Include="Controllers\ClassesController.cs" />
+    <Compile Include="Controllers\CounselorsController.cs" />
+    <Compile Include="Controllers\DomainsController.cs" />
+    <Compile Include="Controllers\FamiliesController.cs" />
+    <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LangProficiencyLevelsController.cs" />
+    <Compile Include="Controllers\LanguagesController.cs" />
+    <Compile Include="Controllers\ModificationsController.cs" />
+    <Compile Include="Controllers\OverallProficiencyScalesController.cs" />
+    <Compile Include="Controllers\QuartersController.cs" />
+    <Compile Include="Controllers\SchoolsController.cs" />
+    <Compile Include="Controllers\SchoolStudentsController.cs" />
+    <Compile Include="Controllers\SchoolYearsController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
+    <Compile Include="Controllers\StudentAdvisorsController.cs" />
+    <Compile Include="Controllers\StudentClassesController.cs" />
+    <Compile Include="Controllers\StudentCounselorsController.cs" />
+    <Compile Include="Controllers\StudentLanguagesController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentTeachersController.cs" />
+    <Compile Include="Controllers\SummariesController.cs" />
+    <Compile Include="Controllers\TeacherClassesController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Accommodation.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Advisor.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Class.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Counselor.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESLModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESLModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESLModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESLModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESLModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Family.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grade.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LangProficiencyLevel.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Modification.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OverallProficiencyScale.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Quarter.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\School.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SchoolStudent.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SchoolYear.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Skill.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentAdvisor.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentClass.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentCounselor.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentLanguage.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentTeacher.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Summary.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teacher.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeacherClass.cs">
+      <DependentUpon>ESLModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,6 +299,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\ESLModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ESLModel.Context.cs</LastGenOutput>
+      <DependentUpon>ESLModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ESLModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ESLModel.edmx</DependentUpon>
+      <LastGenOutput>ESLModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -198,6 +330,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\ESLModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ESLModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ESLModel.edmx.diagram">
+      <DependentUpon>ESLModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -218,10 +357,134 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Accommodations\Create.cshtml" />
+    <Content Include="Views\Accommodations\Delete.cshtml" />
+    <Content Include="Views\Accommodations\Details.cshtml" />
+    <Content Include="Views\Accommodations\Edit.cshtml" />
+    <Content Include="Views\Accommodations\Index.cshtml" />
+    <Content Include="Views\Advisors\Create.cshtml" />
+    <Content Include="Views\Advisors\Delete.cshtml" />
+    <Content Include="Views\Advisors\Details.cshtml" />
+    <Content Include="Views\Advisors\Edit.cshtml" />
+    <Content Include="Views\Advisors\Index.cshtml" />
+    <Content Include="Views\Classes\Create.cshtml" />
+    <Content Include="Views\Classes\Delete.cshtml" />
+    <Content Include="Views\Classes\Details.cshtml" />
+    <Content Include="Views\Classes\Edit.cshtml" />
+    <Content Include="Views\Classes\Index.cshtml" />
+    <Content Include="Views\Counselors\Create.cshtml" />
+    <Content Include="Views\Counselors\Delete.cshtml" />
+    <Content Include="Views\Counselors\Details.cshtml" />
+    <Content Include="Views\Counselors\Edit.cshtml" />
+    <Content Include="Views\Counselors\Index.cshtml" />
+    <Content Include="Views\Domains\Create.cshtml" />
+    <Content Include="Views\Domains\Delete.cshtml" />
+    <Content Include="Views\Domains\Details.cshtml" />
+    <Content Include="Views\Domains\Edit.cshtml" />
+    <Content Include="Views\Domains\Index.cshtml" />
+    <Content Include="Views\Families\Create.cshtml" />
+    <Content Include="Views\Families\Delete.cshtml" />
+    <Content Include="Views\Families\Details.cshtml" />
+    <Content Include="Views\Families\Edit.cshtml" />
+    <Content Include="Views\Families\Index.cshtml" />
+    <Content Include="Views\Grades\Create.cshtml" />
+    <Content Include="Views\Grades\Delete.cshtml" />
+    <Content Include="Views\Grades\Details.cshtml" />
+    <Content Include="Views\Grades\Edit.cshtml" />
+    <Content Include="Views\Grades\Index.cshtml" />
+    <Content Include="Views\LangProficiencyLevels\Create.cshtml" />
+    <Content Include="Views\LangProficiencyLevels\Delete.cshtml" />
+    <Content Include="Views\LangProficiencyLevels\Details.cshtml" />
+    <Content Include="Views\LangProficiencyLevels\Edit.cshtml" />
+    <Content Include="Views\LangProficiencyLevels\Index.cshtml" />
+    <Content Include="Views\Languages\Create.cshtml" />
+    <Content Include="Views\Languages\Delete.cshtml" />
+    <Content Include="Views\Languages\Details.cshtml" />
+    <Content Include="Views\Languages\Edit.cshtml" />
+    <Content Include="Views\Languages\Index.cshtml" />
+    <Content Include="Views\Modifications\Create.cshtml" />
+    <Content Include="Views\Modifications\Delete.cshtml" />
+    <Content Include="Views\Modifications\Details.cshtml" />
+    <Content Include="Views\Modifications\Edit.cshtml" />
+    <Content Include="Views\Modifications\Index.cshtml" />
+    <Content Include="Views\OverallProficiencyScales\Create.cshtml" />
+    <Content Include="Views\OverallProficiencyScales\Delete.cshtml" />
+    <Content Include="Views\OverallProficiencyScales\Details.cshtml" />
+    <Content Include="Views\OverallProficiencyScales\Edit.cshtml" />
+    <Content Include="Views\OverallProficiencyScales\Index.cshtml" />
+    <Content Include="Views\Quarters\Create.cshtml" />
+    <Content Include="Views\Quarters\Delete.cshtml" />
+    <Content Include="Views\Quarters\Details.cshtml" />
+    <Content Include="Views\Quarters\Edit.cshtml" />
+    <Content Include="Views\Quarters\Index.cshtml" />
+    <Content Include="Views\Schools\Create.cshtml" />
+    <Content Include="Views\Schools\Delete.cshtml" />
+    <Content Include="Views\Schools\Details.cshtml" />
+    <Content Include="Views\Schools\Edit.cshtml" />
+    <Content Include="Views\Schools\Index.cshtml" />
+    <Content Include="Views\SchoolStudents\Create.cshtml" />
+    <Content Include="Views\SchoolStudents\Delete.cshtml" />
+    <Content Include="Views\SchoolStudents\Details.cshtml" />
+    <Content Include="Views\SchoolStudents\Edit.cshtml" />
+    <Content Include="Views\SchoolStudents\Index.cshtml" />
+    <Content Include="Views\SchoolYears\Create.cshtml" />
+    <Content Include="Views\SchoolYears\Delete.cshtml" />
+    <Content Include="Views\SchoolYears\Details.cshtml" />
+    <Content Include="Views\SchoolYears\Edit.cshtml" />
+    <Content Include="Views\SchoolYears\Index.cshtml" />
+    <Content Include="Views\Skills\Create.cshtml" />
+    <Content Include="Views\Skills\Delete.cshtml" />
+    <Content Include="Views\Skills\Details.cshtml" />
+    <Content Include="Views\Skills\Edit.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\StudentAdvisors\Create.cshtml" />
+    <Content Include="Views\StudentAdvisors\Delete.cshtml" />
+    <Content Include="Views\StudentAdvisors\Details.cshtml" />
+    <Content Include="Views\StudentAdvisors\Edit.cshtml" />
+    <Content Include="Views\StudentAdvisors\Index.cshtml" />
+    <Content Include="Views\StudentClasses\Create.cshtml" />
+    <Content Include="Views\StudentClasses\Delete.cshtml" />
+    <Content Include="Views\StudentClasses\Details.cshtml" />
+    <Content Include="Views\StudentClasses\Edit.cshtml" />
+    <Content Include="Views\StudentClasses\Index.cshtml" />
+    <Content Include="Views\StudentCounselors\Create.cshtml" />
+    <Content Include="Views\StudentCounselors\Delete.cshtml" />
+    <Content Include="Views\StudentCounselors\Details.cshtml" />
+    <Content Include="Views\StudentCounselors\Edit.cshtml" />
+    <Content Include="Views\StudentCounselors\Index.cshtml" />
+    <Content Include="Views\StudentLanguages\Create.cshtml" />
+    <Content Include="Views\StudentLanguages\Delete.cshtml" />
+    <Content Include="Views\StudentLanguages\Details.cshtml" />
+    <Content Include="Views\StudentLanguages\Edit.cshtml" />
+    <Content Include="Views\StudentLanguages\Index.cshtml" />
+    <Content Include="Views\StudentTeachers\Create.cshtml" />
+    <Content Include="Views\StudentTeachers\Delete.cshtml" />
+    <Content Include="Views\StudentTeachers\Details.cshtml" />
+    <Content Include="Views\StudentTeachers\Edit.cshtml" />
+    <Content Include="Views\StudentTeachers\Index.cshtml" />
+    <Content Include="Views\Summaries\Create.cshtml" />
+    <Content Include="Views\Summaries\Delete.cshtml" />
+    <Content Include="Views\Summaries\Details.cshtml" />
+    <Content Include="Views\Summaries\Edit.cshtml" />
+    <Content Include="Views\Summaries\Index.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\TeacherClasses\Create.cshtml" />
+    <Content Include="Views\TeacherClasses\Delete.cshtml" />
+    <Content Include="Views\TeacherClasses\Details.cshtml" />
+    <Content Include="Views\TeacherClasses\Edit.cshtml" />
+    <Content Include="Views\TeacherClasses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -251,6 +514,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

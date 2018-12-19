@@ -1,0 +1,1834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ESLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accommodation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Instruction" Type="varchar" MaxLength="1000" />
+          <Property Name="Assignment" Type="varchar" MaxLength="1000" />
+          <Property Name="Assessment" Type="varchar" MaxLength="1000" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Advisor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Counselor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Domain">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="12" />
+          <Property Name="GradeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Relationship" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="SameSchool" Type="varchar" MaxLength="10" />
+          <Property Name="NeedInterpreter" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LangProficiencyLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="DomainID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Instruction" Type="varchar" MaxLength="1000" />
+          <Property Name="Assignment" Type="varchar" MaxLength="1000" />
+          <Property Name="Assessment" Type="varchar" MaxLength="1000" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OverallProficiencyScale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Scale" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quarter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quarter" Type="int" Nullable="false" />
+          <Property Name="SchoolYearID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StreetOne" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StreetTwo" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchoolStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="CurrentSchool" Type="int" Nullable="false" />
+          <Property Name="PreviousSchool1" Type="int" />
+          <Property Name="PreviousSchool2" Type="int" />
+          <Property Name="PreviousSchool3" Type="int" />
+        </EntityType>
+        <EntityType Name="SchoolYear">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Observation" Type="varchar" MaxLength="1000" />
+          <Property Name="Intervention" Type="varchar" MaxLength="1000" />
+          <Property Name="Response" Type="varchar" MaxLength="1000" />
+          <Property Name="LangProficiencyLevelID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolID" Type="int" Nullable="false" />
+          <Property Name="SNumber" Type="int" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="12" />
+          <Property Name="IEP" Type="varchar" MaxLength="10" />
+          <Property Name="HomeLanguage" Type="varchar" MaxLength="25" />
+          <Property Name="ELService" Type="varchar" MaxLength="1000" />
+          <Property Name="AdditionalInfo" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="StudentAdvisor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="AdvisorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentCounselor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="CounselorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentLanguage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="Language1" Type="int" />
+          <Property Name="Language2" Type="int" />
+          <Property Name="Language3" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentTeacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="TeacherID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Summary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Note" Type="varchar" MaxLength="1000" />
+          <Property Name="QuarterID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="12" />
+          <Property Name="isELStaff" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TeacherClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherID" Type="int" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="AdvisorID_FK">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="StudentAdvisor" Type="Self.StudentAdvisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentAdvisor">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassID_FK">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="StudentClass" Type="Self.StudentClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentClass">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassID_FK1">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="TeacherClass" Type="Self.TeacherClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeacherClass">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CounselorID_FK">
+          <End Role="Counselor" Type="Self.Counselor" Multiplicity="1" />
+          <End Role="StudentCounselor" Type="Self.StudentCounselor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counselor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentCounselor">
+              <PropertyRef Name="CounselorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CurrentSchool_FK">
+          <End Role="School" Type="Self.School" Multiplicity="1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="CurrentSchool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DomainID_FK">
+          <End Role="Domain" Type="Self.Domain" Multiplicity="1" />
+          <End Role="LangProficiencyLevel" Type="Self.LangProficiencyLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Domain">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LangProficiencyLevel">
+              <PropertyRef Name="DomainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GradeID_FK">
+          <End Role="Grade" Type="Self.Grade" Multiplicity="1" />
+          <End Role="Domain" Type="Self.Domain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Domain">
+              <PropertyRef Name="GradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LangProficiencyLevelID_FK">
+          <End Role="LangProficiencyLevel" Type="Self.LangProficiencyLevel" Multiplicity="1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangProficiencyLevel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="LangProficiencyLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Language1_FK">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="Language1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Language2_FK">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="Language2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Language3_FK">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="Language3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousSchool1_FK">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="PreviousSchool1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousSchool2_FK">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="PreviousSchool2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousSchool3_FK">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="PreviousSchool3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuarterID_FK">
+          <End Role="Quarter" Type="Self.Quarter" Multiplicity="1" />
+          <End Role="Summary" Type="Self.Summary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quarter">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Summary">
+              <PropertyRef Name="QuarterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SchoolYearID_FK">
+          <End Role="SchoolYear" Type="Self.SchoolYear" Multiplicity="1" />
+          <End Role="Quarter" Type="Self.Quarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolYear">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Quarter">
+              <PropertyRef Name="SchoolYearID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK1">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentTeacher" Type="Self.StudentTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentTeacher">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK10">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Family" Type="Self.Family" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Family">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK11">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="OverallProficiencyScale" Type="Self.OverallProficiencyScale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OverallProficiencyScale">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK12">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Modification" Type="Self.Modification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Modification">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK13">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Accommodation" Type="Self.Accommodation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accommodation">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK14">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="SchoolYear" Type="Self.SchoolYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolYear">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK15">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK2">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentClass" Type="Self.StudentClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentClass">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK3">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentCounselor" Type="Self.StudentCounselor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentCounselor">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK4">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentAdvisor" Type="Self.StudentAdvisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentAdvisor">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK6">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Grade">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeacherID_FK">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="StudentTeacher" Type="Self.StudentTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentTeacher">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeacherID_FK2">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="TeacherClass" Type="Self.TeacherClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeacherClass">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ESLModelStoreContainer">
+          <EntitySet Name="Accommodation" EntityType="Self.Accommodation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advisor" EntityType="Self.Advisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Counselor" EntityType="Self.Counselor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Domain" EntityType="Self.Domain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LangProficiencyLevel" EntityType="Self.LangProficiencyLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modification" EntityType="Self.Modification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverallProficiencyScale" EntityType="Self.OverallProficiencyScale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quarter" EntityType="Self.Quarter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolStudent" EntityType="Self.SchoolStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolYear" EntityType="Self.SchoolYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentAdvisor" EntityType="Self.StudentAdvisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentClass" EntityType="Self.StudentClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentCounselor" EntityType="Self.StudentCounselor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentLanguage" EntityType="Self.StudentLanguage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTeacher" EntityType="Self.StudentTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Summary" EntityType="Self.Summary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherClass" EntityType="Self.TeacherClass" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AdvisorID_FK" Association="Self.AdvisorID_FK">
+            <End Role="Advisor" EntitySet="Advisor" />
+            <End Role="StudentAdvisor" EntitySet="StudentAdvisor" />
+          </AssociationSet>
+          <AssociationSet Name="ClassID_FK" Association="Self.ClassID_FK">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="StudentClass" EntitySet="StudentClass" />
+          </AssociationSet>
+          <AssociationSet Name="ClassID_FK1" Association="Self.ClassID_FK1">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="TeacherClass" EntitySet="TeacherClass" />
+          </AssociationSet>
+          <AssociationSet Name="CounselorID_FK" Association="Self.CounselorID_FK">
+            <End Role="Counselor" EntitySet="Counselor" />
+            <End Role="StudentCounselor" EntitySet="StudentCounselor" />
+          </AssociationSet>
+          <AssociationSet Name="CurrentSchool_FK" Association="Self.CurrentSchool_FK">
+            <End Role="School" EntitySet="School" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudent" />
+          </AssociationSet>
+          <AssociationSet Name="DomainID_FK" Association="Self.DomainID_FK">
+            <End Role="Domain" EntitySet="Domain" />
+            <End Role="LangProficiencyLevel" EntitySet="LangProficiencyLevel" />
+          </AssociationSet>
+          <AssociationSet Name="GradeID_FK" Association="Self.GradeID_FK">
+            <End Role="Grade" EntitySet="Grade" />
+            <End Role="Domain" EntitySet="Domain" />
+          </AssociationSet>
+          <AssociationSet Name="LangProficiencyLevelID_FK" Association="Self.LangProficiencyLevelID_FK">
+            <End Role="LangProficiencyLevel" EntitySet="LangProficiencyLevel" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+          <AssociationSet Name="Language1_FK" Association="Self.Language1_FK">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="Language2_FK" Association="Self.Language2_FK">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="Language3_FK" Association="Self.Language3_FK">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousSchool1_FK" Association="Self.PreviousSchool1_FK">
+            <End Role="School" EntitySet="School" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudent" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousSchool2_FK" Association="Self.PreviousSchool2_FK">
+            <End Role="School" EntitySet="School" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudent" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousSchool3_FK" Association="Self.PreviousSchool3_FK">
+            <End Role="School" EntitySet="School" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudent" />
+          </AssociationSet>
+          <AssociationSet Name="QuarterID_FK" Association="Self.QuarterID_FK">
+            <End Role="Quarter" EntitySet="Quarter" />
+            <End Role="Summary" EntitySet="Summary" />
+          </AssociationSet>
+          <AssociationSet Name="SchoolYearID_FK" Association="Self.SchoolYearID_FK">
+            <End Role="SchoolYear" EntitySet="SchoolYear" />
+            <End Role="Quarter" EntitySet="Quarter" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK" Association="Self.StudentID_FK">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudent" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK1" Association="Self.StudentID_FK1">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentTeacher" EntitySet="StudentTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK10" Association="Self.StudentID_FK10">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Family" EntitySet="Family" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK11" Association="Self.StudentID_FK11">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="OverallProficiencyScale" EntitySet="OverallProficiencyScale" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK12" Association="Self.StudentID_FK12">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Modification" EntitySet="Modification" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK13" Association="Self.StudentID_FK13">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Accommodation" EntitySet="Accommodation" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK14" Association="Self.StudentID_FK14">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="SchoolYear" EntitySet="SchoolYear" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK15" Association="Self.StudentID_FK15">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK2" Association="Self.StudentID_FK2">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentClass" EntitySet="StudentClass" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK3" Association="Self.StudentID_FK3">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentCounselor" EntitySet="StudentCounselor" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK4" Association="Self.StudentID_FK4">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentAdvisor" EntitySet="StudentAdvisor" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK6" Association="Self.StudentID_FK6">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Grade" EntitySet="Grade" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherID_FK" Association="Self.TeacherID_FK">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="StudentTeacher" EntitySet="StudentTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherID_FK2" Association="Self.TeacherID_FK2">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="TeacherClass" EntitySet="TeacherClass" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ESLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accommodation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Instruction" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Assignment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Assessment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK13" FromRole="Accommodation" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Advisor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StudentAdvisors" Relationship="Self.AdvisorID_FK" FromRole="Advisor" ToRole="StudentAdvisor" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="StudentClasses" Relationship="Self.ClassID_FK" FromRole="Class" ToRole="StudentClass" />
+          <NavigationProperty Name="TeacherClasses" Relationship="Self.ClassID_FK1" FromRole="Class" ToRole="TeacherClass" />
+        </EntityType>
+        <EntityType Name="Counselor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StudentCounselors" Relationship="Self.CounselorID_FK" FromRole="Counselor" ToRole="StudentCounselor" />
+        </EntityType>
+        <EntityType Name="Domain">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="GradeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LangProficiencyLevels" Relationship="Self.DomainID_FK" FromRole="Domain" ToRole="LangProficiencyLevel" />
+          <NavigationProperty Name="Grade" Relationship="Self.GradeID_FK" FromRole="Domain" ToRole="Grade" />
+        </EntityType>
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Relationship" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SameSchool" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NeedInterpreter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK10" FromRole="Family" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Domains" Relationship="Self.GradeID_FK" FromRole="Grade" ToRole="Domain" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK6" FromRole="Grade" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="LangProficiencyLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="DomainID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Domain" Relationship="Self.DomainID_FK" FromRole="LangProficiencyLevel" ToRole="Domain" />
+          <NavigationProperty Name="Skills" Relationship="Self.LangProficiencyLevelID_FK" FromRole="LangProficiencyLevel" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="StudentLanguages" Relationship="Self.Language1_FK" FromRole="Language" ToRole="StudentLanguage" />
+          <NavigationProperty Name="StudentLanguages1" Relationship="Self.Language2_FK" FromRole="Language" ToRole="StudentLanguage" />
+          <NavigationProperty Name="StudentLanguages2" Relationship="Self.Language3_FK" FromRole="Language" ToRole="StudentLanguage" />
+        </EntityType>
+        <EntityType Name="Modification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Instruction" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Assignment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Assessment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK12" FromRole="Modification" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="OverallProficiencyScale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Scale" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK11" FromRole="OverallProficiencyScale" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Quarter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quarter1" Type="Int32" Nullable="false" />
+          <Property Name="SchoolYearID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Summaries" Relationship="Self.QuarterID_FK" FromRole="Quarter" ToRole="Summary" />
+          <NavigationProperty Name="SchoolYear" Relationship="Self.SchoolYearID_FK" FromRole="Quarter" ToRole="SchoolYear" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StreetOne" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StreetTwo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SchoolStudents" Relationship="Self.CurrentSchool_FK" FromRole="School" ToRole="SchoolStudent" />
+          <NavigationProperty Name="SchoolStudents1" Relationship="Self.PreviousSchool1_FK" FromRole="School" ToRole="SchoolStudent" />
+          <NavigationProperty Name="SchoolStudents2" Relationship="Self.PreviousSchool2_FK" FromRole="School" ToRole="SchoolStudent" />
+          <NavigationProperty Name="SchoolStudents3" Relationship="Self.PreviousSchool3_FK" FromRole="School" ToRole="SchoolStudent" />
+        </EntityType>
+        <EntityType Name="SchoolStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="CurrentSchool" Type="Int32" Nullable="false" />
+          <Property Name="PreviousSchool1" Type="Int32" />
+          <Property Name="PreviousSchool2" Type="Int32" />
+          <Property Name="PreviousSchool3" Type="Int32" />
+          <NavigationProperty Name="School" Relationship="Self.CurrentSchool_FK" FromRole="SchoolStudent" ToRole="School" />
+          <NavigationProperty Name="School1" Relationship="Self.PreviousSchool1_FK" FromRole="SchoolStudent" ToRole="School" />
+          <NavigationProperty Name="School2" Relationship="Self.PreviousSchool2_FK" FromRole="SchoolStudent" ToRole="School" />
+          <NavigationProperty Name="School3" Relationship="Self.PreviousSchool3_FK" FromRole="SchoolStudent" ToRole="School" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK" FromRole="SchoolStudent" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="SchoolYear">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Quarters" Relationship="Self.SchoolYearID_FK" FromRole="SchoolYear" ToRole="Quarter" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK14" FromRole="SchoolYear" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Observation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Intervention" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Response" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LangProficiencyLevelID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LangProficiencyLevel" Relationship="Self.LangProficiencyLevelID_FK" FromRole="Skill" ToRole="LangProficiencyLevel" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolID" Type="Int32" Nullable="false" />
+          <Property Name="SNumber" Type="Int32" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="IEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HomeLanguage" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ELService" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Accommodations" Relationship="Self.StudentID_FK13" FromRole="Student" ToRole="Accommodation" />
+          <NavigationProperty Name="Families" Relationship="Self.StudentID_FK10" FromRole="Student" ToRole="Family" />
+          <NavigationProperty Name="Grades" Relationship="Self.StudentID_FK6" FromRole="Student" ToRole="Grade" />
+          <NavigationProperty Name="Modifications" Relationship="Self.StudentID_FK12" FromRole="Student" ToRole="Modification" />
+          <NavigationProperty Name="OverallProficiencyScales" Relationship="Self.StudentID_FK11" FromRole="Student" ToRole="OverallProficiencyScale" />
+          <NavigationProperty Name="SchoolStudents" Relationship="Self.StudentID_FK" FromRole="Student" ToRole="SchoolStudent" />
+          <NavigationProperty Name="SchoolYears" Relationship="Self.StudentID_FK14" FromRole="Student" ToRole="SchoolYear" />
+          <NavigationProperty Name="StudentTeachers" Relationship="Self.StudentID_FK1" FromRole="Student" ToRole="StudentTeacher" />
+          <NavigationProperty Name="StudentLanguages" Relationship="Self.StudentID_FK15" FromRole="Student" ToRole="StudentLanguage" />
+          <NavigationProperty Name="StudentClasses" Relationship="Self.StudentID_FK2" FromRole="Student" ToRole="StudentClass" />
+          <NavigationProperty Name="StudentCounselors" Relationship="Self.StudentID_FK3" FromRole="Student" ToRole="StudentCounselor" />
+          <NavigationProperty Name="StudentAdvisors" Relationship="Self.StudentID_FK4" FromRole="Student" ToRole="StudentAdvisor" />
+        </EntityType>
+        <EntityType Name="StudentAdvisor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="AdvisorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advisor" Relationship="Self.AdvisorID_FK" FromRole="StudentAdvisor" ToRole="Advisor" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK4" FromRole="StudentAdvisor" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.ClassID_FK" FromRole="StudentClass" ToRole="Class" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK2" FromRole="StudentClass" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentCounselor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="CounselorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Counselor" Relationship="Self.CounselorID_FK" FromRole="StudentCounselor" ToRole="Counselor" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK3" FromRole="StudentCounselor" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentLanguage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="Language1" Type="Int32" />
+          <Property Name="Language2" Type="Int32" />
+          <Property Name="Language3" Type="Int32" />
+          <NavigationProperty Name="Language" Relationship="Self.Language1_FK" FromRole="StudentLanguage" ToRole="Language" />
+          <NavigationProperty Name="Language4" Relationship="Self.Language2_FK" FromRole="StudentLanguage" ToRole="Language" />
+          <NavigationProperty Name="Language5" Relationship="Self.Language3_FK" FromRole="StudentLanguage" ToRole="Language" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK15" FromRole="StudentLanguage" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentTeacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.StudentID_FK1" FromRole="StudentTeacher" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="Self.TeacherID_FK" FromRole="StudentTeacher" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Summary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="QuarterID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Quarter" Relationship="Self.QuarterID_FK" FromRole="Summary" ToRole="Quarter" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="isELStaff" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StudentTeachers" Relationship="Self.TeacherID_FK" FromRole="Teacher" ToRole="StudentTeacher" />
+          <NavigationProperty Name="TeacherClasses" Relationship="Self.TeacherID_FK2" FromRole="Teacher" ToRole="TeacherClass" />
+        </EntityType>
+        <EntityType Name="TeacherClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.ClassID_FK1" FromRole="TeacherClass" ToRole="Class" />
+          <NavigationProperty Name="Teacher" Relationship="Self.TeacherID_FK2" FromRole="TeacherClass" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="StudentID_FK13">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Accommodation" Type="Self.Accommodation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accommodation">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AdvisorID_FK">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="StudentAdvisor" Type="Self.StudentAdvisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentAdvisor">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassID_FK">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="StudentClass" Type="Self.StudentClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentClass">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassID_FK1">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="TeacherClass" Type="Self.TeacherClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeacherClass">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CounselorID_FK">
+          <End Role="Counselor" Type="Self.Counselor" Multiplicity="1" />
+          <End Role="StudentCounselor" Type="Self.StudentCounselor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counselor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentCounselor">
+              <PropertyRef Name="CounselorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DomainID_FK">
+          <End Role="Domain" Type="Self.Domain" Multiplicity="1" />
+          <End Role="LangProficiencyLevel" Type="Self.LangProficiencyLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Domain">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LangProficiencyLevel">
+              <PropertyRef Name="DomainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GradeID_FK">
+          <End Role="Grade" Type="Self.Grade" Multiplicity="1" />
+          <End Role="Domain" Type="Self.Domain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Domain">
+              <PropertyRef Name="GradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK10">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Family" Type="Self.Family" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Family">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK6">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Grade">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LangProficiencyLevelID_FK">
+          <End Role="LangProficiencyLevel" Type="Self.LangProficiencyLevel" Multiplicity="1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangProficiencyLevel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="LangProficiencyLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Language1_FK">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="Language1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Language2_FK">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="Language2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Language3_FK">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="Language3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK12">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Modification" Type="Self.Modification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Modification">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK11">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="OverallProficiencyScale" Type="Self.OverallProficiencyScale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OverallProficiencyScale">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuarterID_FK">
+          <End Role="Quarter" Type="Self.Quarter" Multiplicity="1" />
+          <End Role="Summary" Type="Self.Summary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quarter">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Summary">
+              <PropertyRef Name="QuarterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SchoolYearID_FK">
+          <End Role="SchoolYear" Type="Self.SchoolYear" Multiplicity="1" />
+          <End Role="Quarter" Type="Self.Quarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolYear">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Quarter">
+              <PropertyRef Name="SchoolYearID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CurrentSchool_FK">
+          <End Role="School" Type="Self.School" Multiplicity="1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="CurrentSchool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousSchool1_FK">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="PreviousSchool1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousSchool2_FK">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="PreviousSchool2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PreviousSchool3_FK">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="PreviousSchool3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="SchoolStudent" Type="Self.SchoolStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolStudent">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK14">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="SchoolYear" Type="Self.SchoolYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SchoolYear">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK1">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentTeacher" Type="Self.StudentTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentTeacher">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK15">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentLanguage" Type="Self.StudentLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentLanguage">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK2">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentClass" Type="Self.StudentClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentClass">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK3">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentCounselor" Type="Self.StudentCounselor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentCounselor">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentID_FK4">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentAdvisor" Type="Self.StudentAdvisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentAdvisor">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeacherID_FK">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="StudentTeacher" Type="Self.StudentTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentTeacher">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeacherID_FK2">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="TeacherClass" Type="Self.TeacherClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeacherClass">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ESLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accommodations" EntityType="Self.Accommodation" />
+          <EntitySet Name="Advisors" EntityType="Self.Advisor" />
+          <EntitySet Name="Classes" EntityType="Self.Class" />
+          <EntitySet Name="Counselors" EntityType="Self.Counselor" />
+          <EntitySet Name="Domains" EntityType="Self.Domain" />
+          <EntitySet Name="Families" EntityType="Self.Family" />
+          <EntitySet Name="Grades" EntityType="Self.Grade" />
+          <EntitySet Name="LangProficiencyLevels" EntityType="Self.LangProficiencyLevel" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Modifications" EntityType="Self.Modification" />
+          <EntitySet Name="OverallProficiencyScales" EntityType="Self.OverallProficiencyScale" />
+          <EntitySet Name="Quarters" EntityType="Self.Quarter" />
+          <EntitySet Name="Schools" EntityType="Self.School" />
+          <EntitySet Name="SchoolStudents" EntityType="Self.SchoolStudent" />
+          <EntitySet Name="SchoolYears" EntityType="Self.SchoolYear" />
+          <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="StudentAdvisors" EntityType="Self.StudentAdvisor" />
+          <EntitySet Name="StudentClasses" EntityType="Self.StudentClass" />
+          <EntitySet Name="StudentCounselors" EntityType="Self.StudentCounselor" />
+          <EntitySet Name="StudentLanguages" EntityType="Self.StudentLanguage" />
+          <EntitySet Name="StudentTeachers" EntityType="Self.StudentTeacher" />
+          <EntitySet Name="Summaries" EntityType="Self.Summary" />
+          <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+          <EntitySet Name="TeacherClasses" EntityType="Self.TeacherClass" />
+          <AssociationSet Name="StudentID_FK13" Association="Self.StudentID_FK13">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Accommodation" EntitySet="Accommodations" />
+          </AssociationSet>
+          <AssociationSet Name="AdvisorID_FK" Association="Self.AdvisorID_FK">
+            <End Role="Advisor" EntitySet="Advisors" />
+            <End Role="StudentAdvisor" EntitySet="StudentAdvisors" />
+          </AssociationSet>
+          <AssociationSet Name="ClassID_FK" Association="Self.ClassID_FK">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="StudentClass" EntitySet="StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="ClassID_FK1" Association="Self.ClassID_FK1">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="TeacherClass" EntitySet="TeacherClasses" />
+          </AssociationSet>
+          <AssociationSet Name="CounselorID_FK" Association="Self.CounselorID_FK">
+            <End Role="Counselor" EntitySet="Counselors" />
+            <End Role="StudentCounselor" EntitySet="StudentCounselors" />
+          </AssociationSet>
+          <AssociationSet Name="DomainID_FK" Association="Self.DomainID_FK">
+            <End Role="Domain" EntitySet="Domains" />
+            <End Role="LangProficiencyLevel" EntitySet="LangProficiencyLevels" />
+          </AssociationSet>
+          <AssociationSet Name="GradeID_FK" Association="Self.GradeID_FK">
+            <End Role="Grade" EntitySet="Grades" />
+            <End Role="Domain" EntitySet="Domains" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK10" Association="Self.StudentID_FK10">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Family" EntitySet="Families" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK6" Association="Self.StudentID_FK6">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Grade" EntitySet="Grades" />
+          </AssociationSet>
+          <AssociationSet Name="LangProficiencyLevelID_FK" Association="Self.LangProficiencyLevelID_FK">
+            <End Role="LangProficiencyLevel" EntitySet="LangProficiencyLevels" />
+            <End Role="Skill" EntitySet="Skills" />
+          </AssociationSet>
+          <AssociationSet Name="Language1_FK" Association="Self.Language1_FK">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="Language2_FK" Association="Self.Language2_FK">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="Language3_FK" Association="Self.Language3_FK">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK12" Association="Self.StudentID_FK12">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Modification" EntitySet="Modifications" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK11" Association="Self.StudentID_FK11">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="OverallProficiencyScale" EntitySet="OverallProficiencyScales" />
+          </AssociationSet>
+          <AssociationSet Name="QuarterID_FK" Association="Self.QuarterID_FK">
+            <End Role="Quarter" EntitySet="Quarters" />
+            <End Role="Summary" EntitySet="Summaries" />
+          </AssociationSet>
+          <AssociationSet Name="SchoolYearID_FK" Association="Self.SchoolYearID_FK">
+            <End Role="SchoolYear" EntitySet="SchoolYears" />
+            <End Role="Quarter" EntitySet="Quarters" />
+          </AssociationSet>
+          <AssociationSet Name="CurrentSchool_FK" Association="Self.CurrentSchool_FK">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudents" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousSchool1_FK" Association="Self.PreviousSchool1_FK">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudents" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousSchool2_FK" Association="Self.PreviousSchool2_FK">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudents" />
+          </AssociationSet>
+          <AssociationSet Name="PreviousSchool3_FK" Association="Self.PreviousSchool3_FK">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudents" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK" Association="Self.StudentID_FK">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="SchoolStudent" EntitySet="SchoolStudents" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK14" Association="Self.StudentID_FK14">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="SchoolYear" EntitySet="SchoolYears" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK1" Association="Self.StudentID_FK1">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentTeacher" EntitySet="StudentTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK15" Association="Self.StudentID_FK15">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentLanguage" EntitySet="StudentLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK2" Association="Self.StudentID_FK2">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentClass" EntitySet="StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK3" Association="Self.StudentID_FK3">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentCounselor" EntitySet="StudentCounselors" />
+          </AssociationSet>
+          <AssociationSet Name="StudentID_FK4" Association="Self.StudentID_FK4">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentAdvisor" EntitySet="StudentAdvisors" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherID_FK" Association="Self.TeacherID_FK">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="StudentTeacher" EntitySet="StudentTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherID_FK2" Association="Self.TeacherID_FK2">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="TeacherClass" EntitySet="TeacherClasses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ESLModelStoreContainer" CdmEntityContainer="ESLEntities">
+          <EntitySetMapping Name="Accommodations">
+            <EntityTypeMapping TypeName="ESLModel.Accommodation">
+              <MappingFragment StoreEntitySet="Accommodation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Instruction" ColumnName="Instruction" />
+                <ScalarProperty Name="Assignment" ColumnName="Assignment" />
+                <ScalarProperty Name="Assessment" ColumnName="Assessment" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advisors">
+            <EntityTypeMapping TypeName="ESLModel.Advisor">
+              <MappingFragment StoreEntitySet="Advisor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="ESLModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counselors">
+            <EntityTypeMapping TypeName="ESLModel.Counselor">
+              <MappingFragment StoreEntitySet="Counselor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Domains">
+            <EntityTypeMapping TypeName="ESLModel.Domain">
+              <MappingFragment StoreEntitySet="Domain">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Families">
+            <EntityTypeMapping TypeName="ESLModel.Family">
+              <MappingFragment StoreEntitySet="Family">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="SameSchool" ColumnName="SameSchool" />
+                <ScalarProperty Name="NeedInterpreter" ColumnName="NeedInterpreter" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="ESLModel.Grade">
+              <MappingFragment StoreEntitySet="Grade">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LangProficiencyLevels">
+            <EntityTypeMapping TypeName="ESLModel.LangProficiencyLevel">
+              <MappingFragment StoreEntitySet="LangProficiencyLevel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="DomainID" ColumnName="DomainID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="ESLModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modifications">
+            <EntityTypeMapping TypeName="ESLModel.Modification">
+              <MappingFragment StoreEntitySet="Modification">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Instruction" ColumnName="Instruction" />
+                <ScalarProperty Name="Assignment" ColumnName="Assignment" />
+                <ScalarProperty Name="Assessment" ColumnName="Assessment" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverallProficiencyScales">
+            <EntityTypeMapping TypeName="ESLModel.OverallProficiencyScale">
+              <MappingFragment StoreEntitySet="OverallProficiencyScale">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Scale" ColumnName="Scale" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quarters">
+            <EntityTypeMapping TypeName="ESLModel.Quarter">
+              <MappingFragment StoreEntitySet="Quarter">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Quarter1" ColumnName="Quarter" />
+                <ScalarProperty Name="SchoolYearID" ColumnName="SchoolYearID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="ESLModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StreetOne" ColumnName="StreetOne" />
+                <ScalarProperty Name="StreetTwo" ColumnName="StreetTwo" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolStudents">
+            <EntityTypeMapping TypeName="ESLModel.SchoolStudent">
+              <MappingFragment StoreEntitySet="SchoolStudent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="CurrentSchool" ColumnName="CurrentSchool" />
+                <ScalarProperty Name="PreviousSchool1" ColumnName="PreviousSchool1" />
+                <ScalarProperty Name="PreviousSchool2" ColumnName="PreviousSchool2" />
+                <ScalarProperty Name="PreviousSchool3" ColumnName="PreviousSchool3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolYears">
+            <EntityTypeMapping TypeName="ESLModel.SchoolYear">
+              <MappingFragment StoreEntitySet="SchoolYear">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="ESLModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Observation" ColumnName="Observation" />
+                <ScalarProperty Name="Intervention" ColumnName="Intervention" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="LangProficiencyLevelID" ColumnName="LangProficiencyLevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="ESLModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="SNumber" ColumnName="SNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IEP" ColumnName="IEP" />
+                <ScalarProperty Name="HomeLanguage" ColumnName="HomeLanguage" />
+                <ScalarProperty Name="ELService" ColumnName="ELService" />
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentAdvisors">
+            <EntityTypeMapping TypeName="ESLModel.StudentAdvisor">
+              <MappingFragment StoreEntitySet="StudentAdvisor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentClasses">
+            <EntityTypeMapping TypeName="ESLModel.StudentClass">
+              <MappingFragment StoreEntitySet="StudentClass">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentCounselors">
+            <EntityTypeMapping TypeName="ESLModel.StudentCounselor">
+              <MappingFragment StoreEntitySet="StudentCounselor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="CounselorID" ColumnName="CounselorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentLanguages">
+            <EntityTypeMapping TypeName="ESLModel.StudentLanguage">
+              <MappingFragment StoreEntitySet="StudentLanguage">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Language1" ColumnName="Language1" />
+                <ScalarProperty Name="Language2" ColumnName="Language2" />
+                <ScalarProperty Name="Language3" ColumnName="Language3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTeachers">
+            <EntityTypeMapping TypeName="ESLModel.StudentTeacher">
+              <MappingFragment StoreEntitySet="StudentTeacher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Summaries">
+            <EntityTypeMapping TypeName="ESLModel.Summary">
+              <MappingFragment StoreEntitySet="Summary">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="QuarterID" ColumnName="QuarterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="ESLModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="isELStaff" ColumnName="isELStaff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherClasses">
+            <EntityTypeMapping TypeName="ESLModel.TeacherClass">
+              <MappingFragment StoreEntitySet="TeacherClass">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

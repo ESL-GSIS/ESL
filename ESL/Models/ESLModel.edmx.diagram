@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdeeb16648cf4615873f36a37b106790" Name="Diagram1">
+        <EntityTypeShape EntityType="ESLModel.Accommodation" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Advisor" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Class" Width="1.5" PointX="6.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Counselor" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Domain" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Family" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Grade" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.LangProficiencyLevel" Width="1.5" PointX="7.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Language" Width="1.5" PointX="6.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Modification" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.OverallProficiencyScale" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Quarter" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.School" Width="1.5" PointX="3.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.SchoolStudent" Width="1.5" PointX="6" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.SchoolYear" Width="1.5" PointX="3" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Skill" Width="1.5" PointX="9.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Student" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.StudentAdvisor" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.StudentClass" Width="1.5" PointX="9" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.StudentCounselor" Width="1.5" PointX="9" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.StudentLanguage" Width="1.5" PointX="9" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.StudentTeacher" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Summary" Width="1.5" PointX="7.5" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.Teacher" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESLModel.TeacherClass" Width="1.5" PointX="12" PointY="17.25" IsExpanded="true" />
+        <AssociationConnector Association="ESLModel.StudentID_FK13" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.AdvisorID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.ClassID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.ClassID_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.CounselorID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.DomainID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.GradeID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK10" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK6" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.LangProficiencyLevelID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.Language1_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.Language2_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.Language3_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK12" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK11" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.QuarterID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.SchoolYearID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.CurrentSchool_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.PreviousSchool1_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.PreviousSchool2_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.PreviousSchool3_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK14" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK15" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.StudentID_FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.TeacherID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ESLModel.TeacherID_FK2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

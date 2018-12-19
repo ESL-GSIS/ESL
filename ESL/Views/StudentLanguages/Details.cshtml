@@ -1,0 +1,50 @@
+﻿@model ESL.Models.StudentLanguage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentLanguage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language4.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language4.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language5.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language5.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
