@@ -32,13 +32,11 @@ namespace ESL.Models
         }
     
         public int ID { get; set; }
-        public int SchoolID { get; set; }
         public int SNumber { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Phone { get; set; }
         public string IEP { get; set; }
-        public string HomeLanguage { get; set; }
         public string ELService { get; set; }
         public string AdditionalInfo { get; set; }
     

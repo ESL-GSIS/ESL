@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ESLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ESLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accommodation">
           <Key>
             <PropertyRef Name="ID" />
@@ -158,13 +158,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SchoolID" Type="int" Nullable="false" />
           <Property Name="SNumber" Type="int" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="12" />
           <Property Name="IEP" Type="varchar" MaxLength="10" />
-          <Property Name="HomeLanguage" Type="varchar" MaxLength="25" />
           <Property Name="ELService" Type="varchar" MaxLength="1000" />
           <Property Name="AdditionalInfo" Type="varchar" MaxLength="1000" />
         </EntityType>
@@ -743,8 +741,7 @@
             <End Role="TeacherClass" EntitySet="TeacherClass" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ESLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -932,13 +929,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SchoolID" Type="Int32" Nullable="false" />
           <Property Name="SNumber" Type="Int32" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="IEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="HomeLanguage" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ELService" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="AdditionalInfo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Accommodations" Relationship="Self.StudentID_FK13" FromRole="Student" ToRole="Accommodation" />
@@ -1720,13 +1715,11 @@
             <EntityTypeMapping TypeName="ESLModel.Student">
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
                 <ScalarProperty Name="SNumber" ColumnName="SNumber" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="IEP" ColumnName="IEP" />
-                <ScalarProperty Name="HomeLanguage" ColumnName="HomeLanguage" />
                 <ScalarProperty Name="ELService" ColumnName="ELService" />
                 <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
               </MappingFragment>
